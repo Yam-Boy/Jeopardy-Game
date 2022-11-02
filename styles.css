@@ -1,18 +1,138 @@
 /* Stylesheet for Jeopardy Game*/
+
 :root {
     --text: #ffffff;
+    --dark: #042a43;
+    --light: #ffffff;
     --accent: #048c7f;
-    --jpbg: rgba(0, 0, 0, 0.5);
-    --grad1: #00ccff;
-    --grad2: #d400d4;
     --background: #172c3c;
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
-    background-color: var(--background);
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
 
+body {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    position: fixed;
+    padding: 7px 32px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-bottom: 5px solid var(--accent);
+}
+
+h1 {
+    color: var(--text);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.hamburger {
+    z-index: 1;
+    display: block;
+    position: relative;
+
+    cursor: pointer;
+    user-select: none;
+
+    border: none;
+    outline: none;
+    appearance: none;
+    background: none;
+}
+
+.hamburger span {
+    z-index: 1;
+    width: 30px;
+    height: 3px;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+
+
+    border-radius: 6px;
+    background-color: var(--light);
+
+    transform-origin: 0 0;
+
+    transition: transform 0.4s;
+}
+
+.hamburger:hover span:nth-child(2) {
+    transform: translateX(10px);
+    background-color: var(--accent);
+}
+
+.hamburger.is-active span:nth-child(1) {
+    transform: translate(0px, -2px) rotate(45deg);
+    transform-origin: 0 0;
+}
+
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(15px);
+}
+
+.hamburger.is-active span:nth-child(3) {
+    transform: translate(-3px, 3px) rotate(-45deg);
+    transform-origin: 0 0;
+}
+
+.hamburger.is-active:hover span {
+    background-color: var(--accent);
+}
+
+.menu {
+    flex: 1 1 0%;
+    display: none;
+    margin: 0 -16px;
+    justify-content: flex-end;
+}
+
+.menu a {
+    margin: 0 16px;
+    transition: 0.4s;
+    font-weight: 600;
+    padding: 5px 16px;
+    color: var(--text);
+    border-radius: 99px;
+    text-decoration: none;
+}
+
+.menu a.is-active,
+.menu a:hover {
+    background-color: var(--accent);
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
 }
 
 .container {
@@ -32,7 +152,7 @@ body {
 #lpdiv {
     font-size: 90px;
     text-align: center;
-    font-family: 'Raleway', sans-serif;
+
     color: var(--text);
 
     margin-bottom: 20px;
@@ -47,8 +167,6 @@ body {
     padding: 10px;
     display: flex;
     position: relative;
-    border: 1px solid var(--accent);
-    background: var(--jpbg);
 }
 
 .button {
@@ -63,9 +181,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 10px 32px;
-    border-radius: 35px;
+    border-radius: 99px;
     display: inline-block;
     background-color: var(--accent);
 
     cursor: pointer;
+
+
 }
