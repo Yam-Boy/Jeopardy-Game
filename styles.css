@@ -189,3 +189,46 @@ h1 {
 
 
 }
+/*REGISTRATION FORM*/
+legend{
+    padding: 2px 50px;
+    text-align: center;
+    border: 2px solid #048c7f;
+}
+fieldset{
+    border: 2px solid #048c7f;
+    color: white;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+label.register{
+    font-weight: bold;
+    width: 500px;
+    display: inline-block;
+    padding-top: 5px;
+}
+input.register{
+    border: 1px solid #042a43;
+    font-weight: bold;
+    width: 500px;
+    display: inline-block;
+    padding-top: 5px;
+}
+select.register{
+    padding: 0.5px;
+    border-radius: 1px;
+    border: 1px solid #042a43;
+    width: 175px;
+    display: inline-block;
+    margin-left: -8px;
+    padding-top: 8px;
+}
+input.selection, .button{
+    background-color: #042a43;
+    border: 1px solid #042a43;
+    border-radius: 50%;
+    display: inline;
+    padding: 5px;
+    margin-left: auto;
+}
