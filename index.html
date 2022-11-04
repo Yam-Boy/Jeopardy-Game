@@ -33,6 +33,67 @@
             </button>
         </div>
     </nav>
+    <br><br><br><br>
+    <fieldset>
+        <legend>
+            <h2>REGISTER TO PLAY</h2>
+        </legend>
+        <form name="registration" action="test.php" method="post/get" id="registration">
+            <legend>
+                <h4>Identification Information</h4>
+            </legend>
+            <label class="register">First Name:     </label>
+            <input class="register" type="text" size="45" name="fname" id="fname" required>
+            <br>
+            <label class="register">Last Name:      </label>
+            <input class="register" type="text" size="45" name="lname" id="lname" required>
+            <br><br>
+            <label class="register">Gender:            </label>
+            <input class="register" type="text" size="6" name="gender" id="gender" required>
+            <br><br>
+            <label class="register">Date of Birth:          </label>
+            <input class="register" type="date" size="45" name="dob" id="dob" required>
+            <br>
+            <label class="register">Age:          </label>
+            <input class="register" type="number" size="45" name="age" id="age">
+            <br><br>
+            <label class="register">Email:             </label>
+            <input class="register" type="email" size="45" name="email" id="email" placeholder="john@SomeEmail.com">
+            <br><br>
+            <legend>
+                <h4>Address Information</h4>
+            </legend>
+                <label class="register">Street:          </label>
+                <input class="register" type="text" size="45" name="street" id="street">
+                <br>
+                <label class="register">City:          </label>
+                <input class="register" type="text" size="45" name="city" id="city">
+                <br>
+                <label class="register">Town:          </label>
+                <input class="register" type="text" size="45" name="town" id="town" required>
+                <br>
+                <label class="register">Country:          </label>
+                <input class="register" type="text" size="45" name="country" id="country">
+                <br><br>
+            <legend>
+                <h4>Additional Information</h4>
+            </legend>
+            <label class="register">Educational Level:          </label>
+            <input class="register" type="text" size="45" name="education" id="education" required>
+            <br><br>
+            <label class="register">Image of Self:          </label>
+            <input type="file" size="45" name="image" id="image">
+            <br><br>
+            <legend>
+                <h5>BUTTONS</h5>
+            </legend>
+            <br>
+            <button type="submit" class ="button">REGISTER</button>
+            <a href="#" class="button">END GAME</a>
+            <a href="#" class="button">PLAY</a>
+            <br><br>
+        </form>
+    </fieldset>
 
     <br><br><br>
 
