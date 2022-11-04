@@ -189,33 +189,43 @@ h1 {
 
 
 }
+
 /*REGISTRATION FORM*/
-legend{
-    padding: 2px 50px;
-    text-align: center;
-    border: 2px solid #048c7f;
-}
-fieldset{
+
+fieldset {
     border: 2px solid #048c7f;
     color: white;
     width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
-label.register{
-    font-weight: bold;
-    width: 500px;
-    display: inline-block;
-    padding-top: 5px;
+
+legend {
+    padding: 2px 50px;
+    text-align: center;
+    border: 2px solid #048c7f;
+    border-left: none;
+    border-right: none;
 }
-input.register{
+
+legend.register {
+    border: 2px solid #048c7f;
+    border-bottom: none;
+}
+
+label {
+    padding: 10px;
+}
+
+input.register {
     border: 1px solid #042a43;
     font-weight: bold;
     width: 500px;
     display: inline-block;
     padding-top: 5px;
 }
-select.register{
+
+select.register {
     padding: 0.5px;
     border-radius: 1px;
     border: 1px solid #042a43;
@@ -224,11 +234,32 @@ select.register{
     margin-left: -8px;
     padding-top: 8px;
 }
-input.selection{
+
+input.selection {
     background-color: #048c7f;
     border: 1px solid #042a43;
     border-radius: 50%;
     display: inline;
     padding: 5px;
     margin-left: auto;
+}
+
+
+.regbut {
+    font-size: 10px;
+    color: var(--text);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+
+    border: none;
+    /* margin-top: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 32px;
+    border-radius: 99px;
+    display: inline-block;
+    background-color: var(--accent);
+
+    cursor: pointer;
 }
