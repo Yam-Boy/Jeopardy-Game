@@ -224,11 +224,3 @@ select.register{
     margin-left: -8px;
     padding-top: 8px;
 }
-input.selection{
-    background-color: #042a43;
-    border: 1px solid #042a43;
-    border-radius: 50%;
-    display: inline;
-    padding: 5px;
-    margin-left: auto;
-}
