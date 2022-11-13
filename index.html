@@ -42,18 +42,21 @@
         <legend class="register">
             <h2>REGISTER TO PLAY</h2>
         </legend>
-        <form name="registration" action="test.php" method="post/get" id="registration" onsubmit="return calculateAge()">
+        <form name="registration" id="registration">
             <legend>
                 <h4>Identification Information</h4>
             </legend>
             <label class="register">First Name: </label>
-            <input class="register" type="text" size="45" name="fname" id="fname" pattern=".{3,}" required>
+            <input class="register" type="text" size="45" name="fname" id="fname" pattern=".{4,}" required>
             <br>
             <label class="register">Last Name: </label>
             <input class="register" type="text" size="45" name="lname" id="lname" required>
             <br><br>
             <label class="register">Gender: </label>
-            <input class="register" type="text" size="6" name="gender" id="gender" pattern="[F, M]{1}" required>
+            <br><br>
+            <input class="gender" type="radio" size="6" name="gender" id="gender" required><label>Male</label> 
+            <input class="gender" type="radio" size="6" name="gender" id="gender" required><label>Female</label> 
+
             <br><br>
             <label class="register">Date of Birth: </label>
             <input class="register" type="date" size="45" name="dob" id="dob" onchange="calculateAge()" required>
@@ -92,7 +95,7 @@
                 <h5>BUTTONS</h5>
             </legend>
             <br>
-            <button type="submit" class="regbut">REGISTER</button>
+            <button type="submit" class="regbut" onclick="Register()">REGISTER</button>
             <a href="#" class="regbut">END GAME</a>
             <a href="#" class="regbut">PLAY</a>
             <br><br>
