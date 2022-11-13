@@ -14,6 +14,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -41,27 +42,27 @@
         <legend class="register">
             <h2>REGISTER TO PLAY</h2>
         </legend>
-        <form name="registration" action="test.php" method="post/get" id="registration">
+        <form name="registration" action="test.php" method="post/get" id="registration" onsubmit="return calculateAge()">
             <legend>
                 <h4>Identification Information</h4>
             </legend>
             <label class="register">First Name: </label>
-            <input class="register" type="text" size="45" name="fname" id="fname" required>
+            <input class="register" type="text" size="45" name="fname" id="fname" pattern=".{3,}" required>
             <br>
             <label class="register">Last Name: </label>
             <input class="register" type="text" size="45" name="lname" id="lname" required>
             <br><br>
             <label class="register">Gender: </label>
-            <input class="register" type="text" size="6" name="gender" id="gender" required>
+            <input class="register" type="text" size="6" name="gender" id="gender" pattern="[F, M]{1}" required>
             <br><br>
             <label class="register">Date of Birth: </label>
-            <input class="register" type="date" size="45" name="dob" id="dob" required>
+            <input class="register" type="date" size="45" name="dob" id="dob" onchange="calculateAge()" required>
             <br>
             <label class="register">Age: </label>
-            <input class="register" type="number" size="45" name="age" id="age">
+            <input class="register" type="number" size="45" name="age" id="age" disabled>
             <br><br>
             <label class="register">Email: </label>
-            <input class="register" type="email" size="45" name="email" id="email" placeholder="john@SomeEmail.com">
+            <input class="register" type="email" size="45" name="email" id="email" placeholder="john@SomeEmail.com" pattern=".+@someemail.com">
             <br><br>
             <legend>
                 <h4>Address Information</h4>
