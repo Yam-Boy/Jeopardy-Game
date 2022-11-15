@@ -284,6 +284,14 @@ input.selection {
     margin-left: auto;
 }
 
+input.gender {
+    border: 1px solid #042a43;
+    font-weight: bold;
+    width: 50px;
+    display: inline-block;
+    padding-top: 5px;
+}
+
 
 .regbut {
     font-size: 10px;
