@@ -250,14 +250,13 @@ legend {
 
 legend.register {
     border: 2px solid #048c7f;
-    border-bottom: none;
 }
 
 label {
     padding: 10px;
 }
 
-input.register {
+input.register, select.register {
     border: 1px solid #042a43;
     font-weight: bold;
     width: 500px;
@@ -265,33 +264,19 @@ input.register {
     padding-top: 5px;
 }
 
-select.register {
-    padding: 0.5px;
-    border-radius: 1px;
-    border: 1px solid #042a43;
-    width: 175px;
-    display: inline-block;
-    margin-left: -8px;
-    padding-top: 8px;
-}
-
-input.selection {
-    background-color: #048c7f;
-    border: 1px solid #042a43;
-    border-radius: 50%;
-    display: inline;
-    padding: 5px;
-    margin-left: auto;
-}
-
-input.gender {
+textarea.register {
     border: 1px solid #042a43;
     font-weight: bold;
-    width: 50px;
+    width: 500px;
+    height: 100px;
     display: inline-block;
     padding-top: 5px;
 }
 
+input.disabled, textarea.disabled {
+    color: var(--accent);
+    background-color: var(--light);
+}
 
 .regbut {
     font-size: 10px;

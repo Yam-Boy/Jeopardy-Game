@@ -42,6 +42,7 @@
         <legend class="register">
             <h2>REGISTER TO PLAY</h2>
         </legend>
+        <br>
         <form name="registration" id="registration">
             <legend>
                 <h4>Identification Information</h4>
@@ -53,16 +54,17 @@
             <input class="register" type="text" size="45" name="lname" id="lname" required>
             <br><br>
             <label class="register">Gender: </label>
-            <br><br>
-            <input class="gender" type="radio" size="6" name="gender" id="gender" required><label>Male</label> 
-            <input class="gender" type="radio" size="6" name="gender" id="gender" required><label>Female</label> 
-
+            <select class="register" name="gender" id="gender" required>
+                <option value="">Select Your Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
             <br><br>
             <label class="register">Date of Birth: </label>
             <input class="register" type="date" size="45" name="dob" id="dob" onchange="calculateAge()" required>
             <br>
             <label class="register">Age: </label>
-            <input class="register" type="number" size="45" name="age" id="age" disabled>
+            <input class="register disabled" type="number" name="age" id="age" disabled>
             <br><br>
             <label class="register">Email: </label>
             <input class="register" type="email" size="45" name="email" id="email" placeholder="john@SomeEmail.com" pattern=".+@someemail.com">
@@ -86,19 +88,31 @@
                 <h4>Additional Information</h4>
             </legend>
             <label class="register">Educational Level: </label>
-            <input class="register" type="text" size="45" name="education" id="education" required>
+            <select class="register" name="education" id="education" required>
+                <option value="">Select Your Educational Level</option>
+                <option value="High School">High School</option>
+                <option value="Community College">Community College</option>
+                <option value="University">University</option>
+            </select>
             <br><br>
             <label class="register">Image of Self: </label>
-            <input type="file" size="45" name="image" id="image">
+            <input type="file" name="image" id="image">
             <br><br>
             <legend>
                 <h5>BUTTONS</h5>
             </legend>
             <br>
             <button type="submit" class="regbut" onclick="Register()">REGISTER</button>
-            <a href="#" class="regbut">END GAME</a>
-            <a href="#" class="regbut">PLAY</a>
+            <a href="#" class="regbut" onclick="PlayGame()">PLAY</a>
+            <a href="#" class="regbut" onclick="findPercentageScore()">QUIT</a>
             <br><br>
+            <legend>
+                <h4>Player Information</h4>
+            </legend>
+            <label class="register">Player Statistics</label>
+            <textarea class="register disabled" name="showpercentage" id="playerinfo" disabled></textarea>
+            <label class="register">Player Data</label>
+            <textarea class="register disabled" name="showallplayers" id="showallplayers" disabled></textarea>
         </form>
     </fieldset>
 
