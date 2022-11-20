@@ -42,10 +42,7 @@ function Register() {
     var email = document.forms["registration"]["email"].value;
     var atpos = email.indexOf("@");
     var dotpos = email.lastIndexOf(".");
-    var street = document.forms["registration"]["street"].value;
-    var city = document.forms["registration"]["city"].value;
     var town = document.forms["registration"]["town"].value;
-    var country = document.forms["registration"]["country"].value;
     var education = document.forms["registration"]["education"].value;
     var image = document.forms["registration"]["image"].value;
     var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
@@ -56,7 +53,7 @@ function Register() {
     } else if (lname == "") {
         alert("Last name must be filled out");
         return false;
-    } else if (gender[0].checked == false && form.gender[1].checked == false) {
+    } else if (gender == "") {
         alert("Gender must be selected");
         return false;
     } else if (dob == "") {
@@ -65,33 +62,26 @@ function Register() {
     } else if (age < 12) {
         alert("Age must be over 12");
         return false;
-    } else if (email == "" || atpos < 1 || dotpos - atpos < 2) {
-        alert("Email must be filled out | @someemail.com");
-        return false;
-    } else if (street == "") {
-        alert("Street must be filled out");
-        return false;
-    } else if (city == "") {
-        alert("City must be filled out");
-        return false;
+    } else if (email != "") {
+        if(atpos < 1 || dotpos - atpos < 2){
+            alert("Email must be filled out using @someemail.com");
+            return false;
+        }
     } else if (town == "") {
         alert("Town must be filled out");
-        return false;
-    } else if (country == "") {
-        alert("Country must be filled out");
         return false;
     } else if (education == "") {
         alert("Education must be filled out");
         return false;
-    } else if (!allowedExtensions.exec(image)) {
-        alert("Image must be selected");
+    } else if (image != "" && !allowedExtensions.exec(image)) {
+        alert("Correct image format must be selected");
         return false;
     } else {
-        PlayersData.push(fname, lname, gender, dob, age, email, street, city, town, country, education, image);
+        PlayersData.push(fname + " " + lname + " " + gender + " " + dob + " " + town + " " + education);
         for (var i = 0; i < PlayersData.length; i++) {
             localStorage.setItem(i, PlayersData[i]);
         }
-        console.log(PlayersData[0]);
+        console.table(PlayersData);
         alert("Registration Successful");
         return true;
     }
