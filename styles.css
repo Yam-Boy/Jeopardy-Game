@@ -256,7 +256,8 @@ label {
     padding: 10px;
 }
 
-input.register, select.register {
+input.register,
+select.register {
     border: 1px solid #042a43;
     font-weight: bold;
     width: 500px;
@@ -265,15 +266,17 @@ input.register, select.register {
 }
 
 textarea.register {
-    border: 1px solid #042a43;
+    /* border: 1px solid #042a43; */
     font-weight: bold;
     width: 500px;
     height: 100px;
     display: inline-block;
     padding-top: 5px;
+    background-color: none;
 }
 
-input.disabled, textarea.disabled {
+input.disabled,
+textarea.disabled {
     color: var(--accent);
     background-color: var(--light);
 }
