@@ -1,5 +1,4 @@
 // Game Logic for Jeopardy Game
-
 initCatRow()
 initBoard()
 
@@ -30,7 +29,7 @@ function initBoard() {
         let boxValue = 100 * (i + 1)
         row.className = 'clue-row'
 
-        for (let j=0; j < 5; j++) {
+        for (let j = 0; j < 5; j++) {
             let box = document.createElement('div')
             box.className = 'clue-box'
             box.textContent = '$' + boxValue
@@ -97,7 +96,7 @@ function resetBoard() {
     while (catParent.firstChild) {
         catParent.removeChild(catParent.firstChild)
     }
-    document.getElementById('score').innerText = 0
+    document.getElementById('score').innerText = 100
     initBoard()
     initCatRow()
 }
@@ -107,7 +106,7 @@ function resetBoard() {
 function setCategories (catArray) {
     let element = document.getElementById('category-row')
         let children = element.children;
-        for(let i=0; i<children.length; i++) {
+        for(let i = 0; i < children.length; i++) {
             children[i].innerHTML = catArray[i].title
         }
 }
@@ -157,6 +156,7 @@ function awardPoints(evaluateAnswer, confirmAnswer, possiblePoints) {
         currentScore += possiblePoints
         target.innerText = currentScore
     } else {
-        alert(`No points awarded.`)
+        currentScore -= possiblePoints
+        target.innerText = currentScore
     }
 }

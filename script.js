@@ -4,8 +4,9 @@
 const mobileMenu = document.querySelector('.mobile-nav');
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
-const tbdisable = document.querySelectorAll('.register');
-const register = document.querySelector('.regbut');
+const registering = document.querySelector('.register');
+const play = document.querySelector('.play');
+const quit = document.querySelector('.quit');
 
 // Highlight the menu item that is currently active
 menu.addEventListener('click', function () {
@@ -17,6 +18,8 @@ hamburger.addEventListener('click', function () {
     this.classList.toggle('is-active');
     mobileMenu.classList.toggle('is-active');
 });
+
+registering.addEventListener('click', Register);
 
 //Function to calculate age based on date of birth
 function calculateAge() {
@@ -43,7 +46,10 @@ function Register() {
     var email = document.forms["registration"]["email"].value;
     var atpos = email.indexOf("@");
     var dotpos = email.lastIndexOf(".");
+    var street = document.forms["registration"]["street"].value;
+    var city = document.forms["registration"]["city"].value;
     var town = document.forms["registration"]["town"].value;
+    var country = document.forms["registration"]["country"].value;
     var education = document.forms["registration"]["education"].value;
     var image = document.forms["registration"]["image"].value;
     var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
@@ -83,12 +89,7 @@ function Register() {
             localStorage.setItem(i, PlayersData[i]);
         }
         console.table(PlayersData);
-        alert("Registration Successful");
+        alert("Welcome " + fname + " " + lname + " to Jeopardy!");
         return true;
     }
 }
-
-register.addEventListener('click', function () {
-    Register();
-    tbdisable.classList.disable = true;
-});
