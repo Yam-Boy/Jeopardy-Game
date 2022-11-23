@@ -4,6 +4,8 @@
 const mobileMenu = document.querySelector('.mobile-nav');
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
+const tbdisable = document.querySelector('.register');
+const register = document.querySelector('.regbut');
 
 // Highlight the menu item that is currently active
 menu.addEventListener('click', function () {
@@ -14,7 +16,6 @@ menu.addEventListener('click', function () {
 hamburger.addEventListener('click', function () {
     this.classList.toggle('is-active');
     mobileMenu.classList.toggle('is-active');
-
 });
 
 //Function to calculate age based on date of birth
@@ -86,3 +87,8 @@ function Register() {
         return true;
     }
 }
+
+register.addEventListener('click', function () {
+    Register();
+    tbdisable.classList.disable = true;
+});
