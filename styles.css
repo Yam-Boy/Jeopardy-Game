@@ -20,6 +20,7 @@
 body {
     background-color: var(--background);
     color: var(--text);
+    background-image: var(--background-image);
 }
 
 .content {
@@ -182,7 +183,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--background);
+    background-color: none;
 }
 
 .title {
@@ -297,6 +298,14 @@ textarea.register {
 }
 
 /*PLAY AREA*/
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: var(--text-shadow);
+    font-weight: bold;
+}
+
 .score {
     display: flex;
     align-items: center;
@@ -305,6 +314,11 @@ textarea.register {
 span {
     font-size: 2rem;
     font-weight: bold;
+    color: var(--accent);
+}
+
+.playarea {
+    visibility: hidden;
 }
 
 #game-container {
