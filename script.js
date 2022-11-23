@@ -4,7 +4,7 @@
 const mobileMenu = document.querySelector('.mobile-nav');
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
-const tbdisable = document.querySelector('.register');
+const tbdisable = document.querySelectorAll('.register');
 const register = document.querySelector('.regbut');
 
 // Highlight the menu item that is currently active
