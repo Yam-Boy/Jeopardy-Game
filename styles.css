@@ -254,7 +254,8 @@ label {
     padding: 10px;
 }
 
-input.register, select.register {
+input.register,
+select.register {
     border: 1px solid #042a43;
     font-weight: bold;
     width: 500px;
@@ -294,11 +295,12 @@ textarea.register {
 
     cursor: pointer;
 }
+
 /*PLAY AREA*/
 .score {
     display: flex;
     align-items: center;
- }
+}
 
 span {
     font-size: 2rem;
@@ -329,10 +331,12 @@ span {
 
 .clue-box {
     display: flex;
-    align-items: center; /*vertical*/
-    justify-content: center; /*horizontal*/
+    align-items: center;
+    /*vertical*/
+    justify-content: center;
+    /*horizontal*/
     border: 2px solid white;
-    background-color: var( --accent2);
+    background-color: var(--accent2);
     color: white;
     border-radius: 5px;
     margin: 5px;

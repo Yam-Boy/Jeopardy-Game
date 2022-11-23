@@ -1,131 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jeopardy - Sign In</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy - Sign In</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Rubik:wght@300&family=Ubuntu:wght@300&display=swap"
-            rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Rubik:wght@300&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
 
-        <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
-    </head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script src="logic.js"></script>
+</head>
 
-    <body>
-        <!-- Navigation Bar -->
-        <nav>
-            <div class="content">
-                <h1>Jeopardy</h1>
-                <div class="menu">
-                    <a href="splash.html">Home</a>
-                    <a href="#">Play</a>
-                    <a href="about.html">About</a>
-                </div>
-
-                <button class="hamburger ">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="content">
+            <h1>Jeopardy</h1>
+            <div class="menu">
+                <a href="splash.html">Home</a>
+                <a href="#">Play</a>
+                <a href="about.html">About</a>
             </div>
-        </nav>
 
-        <!-- Register Form -->
-        <br><br><br><br>
-        <fieldset class="field">
-            <legend class="register">
-                <h2>REGISTER TO PLAY</h2>
+            <button class="hamburger ">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Register Form -->
+    <br><br><br><br>
+    <fieldset class="field">
+        <legend class="register">
+            <h2>REGISTER TO PLAY</h2>
+        </legend>
+        <br>
+        <form name="registration" id="registration">
+            <legend>
+                <h4>Identification Information</h4>
+            </legend>
+            <label class="register">First Name: </label>
+            <input class="register" type="text" size="45" name="fname" id="fname" pattern=".{4,}" required>
+            <br>
+            <label class="register">Last Name: </label>
+            <input class="register" type="text" size="45" name="lname" id="lname" required>
+            <br><br>
+            <label class="register">Gender: </label>
+            <select class="register" name="gender" id="gender" required>
+                <option value="">Select Your Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br><br>
+            <label class="register">Date of Birth: </label>
+            <input class="register" type="date" size="45" name="dob" id="dob" onchange="calculateAge()" required>
+            <br>
+            <label class="register">Age: </label>
+            <input class="register disabled" type="number" name="age" id="age" disabled>
+            <br><br>
+            <label class="register">Email: </label>
+            <input class="register" type="email" size="45" name="email" id="email" placeholder="john@SomeEmail.com"
+                pattern=".+@someemail.com">
+            <br><br>
+            <legend>
+                <h4>Address Information</h4>
+            </legend>
+            <label class="register">Street: </label>
+            <input class="register" type="text" size="45" name="street" id="street">
+            <br>
+            <label class="register">City: </label>
+            <input class="register" type="text" size="45" name="city" id="city">
+            <br>
+            <label class="register">Town: </label>
+            <input class="register" type="text" size="45" name="town" id="town" required>
+            <br>
+            <label class="register">Country: </label>
+            <input class="register" type="text" size="45" name="country" id="country">
+            <br><br>
+            <legend>
+                <h4>Additional Information</h4>
+            </legend>
+            <label class="register">Educational Level: </label>
+            <select class="register" name="education" id="education" required>
+                <option value="">Select Your Educational Level</option>
+                <option value="High School">High School</option>
+                <option value="Community College">Community College</option>
+                <option value="University">University</option>
+            </select>
+            <br><br>
+            <label class="register">Image of Self: </label>
+            <input type="file" name="image" id="image">
+            <br><br>
+            <legend>
+                <h5>BUTTONS</h5>
             </legend>
             <br>
-            <form name="registration" id="registration">
-                <legend>
-                    <h4>Identification Information</h4>
-                </legend>
-                <label class="register">First Name: </label>
-                <input class="register" type="text" size="45" name="fname" id="fname" pattern=".{4,}" required>
-                <br>
-                <label class="register">Last Name: </label>
-                <input class="register" type="text" size="45" name="lname" id="lname" required>
-                <br><br>
-                <label class="register">Gender: </label>
-                <select class="register" name="gender" id="gender" required>
-                    <option value="">Select Your Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-                <br><br>
-                <label class="register">Date of Birth: </label>
-                <input class="register" type="date" size="45" name="dob" id="dob" onchange="calculateAge()" required>
-                <br>
-                <label class="register">Age: </label>
-                <input class="register disabled" type="number" name="age" id="age" disabled>
-                <br><br>
-                <label class="register">Email: </label>
-                <input class="register" type="email" size="45" name="email" id="email" placeholder="john@SomeEmail.com" pattern=".+@someemail.com">
-                <br><br>
-                <legend>
-                    <h4>Address Information</h4>
-                </legend>
-                <label class="register">Street: </label>
-                <input class="register" type="text" size="45" name="street" id="street">
-                <br>
-                <label class="register">City: </label>
-                <input class="register" type="text" size="45" name="city" id="city">
-                <br>
-                <label class="register">Town: </label>
-                <input class="register" type="text" size="45" name="town" id="town" required>
-                <br>
-                <label class="register">Country: </label>
-                <input class="register" type="text" size="45" name="country" id="country">
-                <br><br>
-                <legend>
-                    <h4>Additional Information</h4>
-                </legend>
-                <label class="register">Educational Level: </label>
-                <select class="register" name="education" id="education" required>
-                    <option value="">Select Your Educational Level</option>
-                    <option value="High School">High School</option>
-                    <option value="Community College">Community College</option>
-                    <option value="University">University</option>
-                </select>
-                <br><br>
-                <label class="register">Image of Self: </label>
-                <input type="file" name="image" id="image">
-                <br><br>
-                <legend>
-                    <h5>BUTTONS</h5>
-                </legend>
-                <br>
-                <button type="submit" class="regbut" onclick="Register()">REGISTER</button>
-                <a href="#" class="regbut" onclick="PlayGame()">PLAY</a>
-                <a href="#" class="regbut" onclick="findPercentageScore()">QUIT</a>
-                <br><br>
-                <legend>
-                    <h4>Player Information</h4>
-                </legend>
-                <label class="register">Player Statistics</label>
-                <textarea class="register disabled" name="showpercentage" id="playerinfo" disabled></textarea>
-                <label class="register">Player Data</label>
-                <textarea class="register disabled" name="showallplayers" id="showallplayers" disabled></textarea>
-            </form>
-        </fieldset>
-        <br><br><br>
+            <button type="submit" class="regbut" onclick="Register()">REGISTER</button>
+            <a href="#" class="regbut" onclick="PlayGame()">PLAY</a>
+            <a href="#" class="regbut" onclick="findPercentageScore()">QUIT</a>
+            <br><br>
+            <legend>
+                <h4>Player Information</h4>
+            </legend>
+            <label class="register">Player Statistics</label>
+            <textarea class="register disabled" name="showpercentage" id="playerinfo" disabled></textarea>
+            <label class="register">Player Data</label>
+            <textarea class="register disabled" name="showallplayers" id="showallplayers" disabled></textarea>
+        </form>
+    </fieldset>
+    <br><br><br>
 
-        <!-- Play Area -->
-        <h1>Jeopardy Online!</h1>
-        <button type="button" class="regbut" id="start-game">Start New Game</button>
-        <br/>
-        <span>Score:</span><span id="score"> 100</span>
-        <section id="game-container">
-            <section id="category-row"></section>
-            <section id="clue-board"></section>
-        </section>
-        <script src="logic.js"></script>    
-    </body>
+    <!-- Play Area -->
+    <h1>Jeopardy Online!</h1>
+    <button type="button" class="regbut" id="start-game">Start New Game</button>
+    <br />
+    <span>Score:</span><span id="score"> 100</span>
+    <section id="game-container">
+        <section id="category-row"></section>
+        <section id="clue-board"></section>
+    </section>
+</body>
+
 </html>
