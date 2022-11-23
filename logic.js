@@ -1,4 +1,5 @@
 // Game Logic for Jeopardy Game
+
 initCatRow()
 initBoard()
 
@@ -9,7 +10,7 @@ document.querySelector('#start-game').addEventListener('click',buildCategories)
 function initCatRow() {
     let catRow = document.getElementById('category-row')
 
-    for (let i=0; i<6; i++) {
+    for (let i = 0; i < 5; i++) {
         let box = document.createElement('div')
         box.className = 'clue-box category-box'
         catRow.appendChild(box)
@@ -22,14 +23,14 @@ function initCatRow() {
 function initBoard() {
     let board = document.getElementById('clue-board')
 
-    //GENERATE 5 ROWS, THEN PLACE 6 BOXES IN EACH ROW
+    //GENERATE 5 ROWS, THEN PLACE 5 BOXES IN EACH ROW
 
     for (let i = 0; i < 5; i++) {
         let row = document.createElement('div')
         let boxValue = 100 * (i + 1)
         row.className = 'clue-row'
 
-        for (let j=0; j<6; j++) {
+        for (let j=0; j < 5; j++) {
             let box = document.createElement('div')
             box.className = 'clue-box'
             box.textContent = '$' + boxValue
@@ -76,11 +77,7 @@ function buildCategories () {
         `https://jservice.io/api/category?&id=${randInt()}`
     ).then((res) => res.json());
 
-    const fetchReq6 = fetch(
-        `https://jservice.io/api/category?&id=${randInt()}`
-    ).then((res) => res.json());
-
-    const allData = Promise.all([fetchReq1,fetchReq2,fetchReq3,fetchReq4,fetchReq5,fetchReq6])
+    const allData = Promise.all([fetchReq1,fetchReq2,fetchReq3,fetchReq4,fetchReq5])
 
     allData.then((res) => {
         console.log(res)
@@ -139,22 +136,22 @@ function showQuestion(clue, target, boxValue) {
     let possiblePoints = +(boxValue)
     target.innerHTML = clue.answer
     target.removeEventListener('click',getClue,false)
-    evaluateAnswer(userAnswer, correctAnswer, possiblePoints)
+    checkAnswer(userAnswer, correctAnswer, possiblePoints)
 }
 
 // EVALUATE ANSWER AND SHOW TO USER TO CONFIRM
 
-function evaluateAnswer(userAnswer, correctAnswer, possiblePoints) {
-    let checkAnswer = (userAnswer == correctAnswer) ? 'correct' : 'incorrect'
+function checkAnswer(userAnswer, correctAnswer, possiblePoints) {
+    let evaluateAnswer = (userAnswer == correctAnswer) ? 'correct' : 'incorrect'
     let confirmAnswer = 
     confirm(`For $${possiblePoints}, you answered "${userAnswer}", and the correct answer was "${correctAnswer}". Your answer appears to be ${checkAnswer}. Click OK to accept or click Cancel if the answer was not properly evaluated.`)
-    awardPoints(checkAnswer, confirmAnswer, possiblePoints)
+    awardPoints(evaluateAnswer, confirmAnswer, possiblePoints)
 }
 
 // AWARD POINTS
 
-function awardPoints(checkAnswer, confirmAnswer, possiblePoints) {
-    if (!(checkAnswer == 'incorrect' && confirmAnswer == true)) {
+function awardPoints(evaluateAnswer, confirmAnswer, possiblePoints) {
+    if (!(evaluateAnswer == 'incorrect' && confirmAnswer == true)) {
         let target = document.getElementById('score')
         let currentScore = +(target.innerText)
         currentScore += possiblePoints
