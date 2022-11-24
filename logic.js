@@ -7,6 +7,8 @@ initBoard()
 document.querySelector('#start-game').addEventListener('click',buildCategories)
 
 //CREATE CATEGORY ROW
+//creates a div element by using a loop the iterates 5 times
+//5 div are created and appended to mak a row
 
 function initCatRow() {
     let catRow = document.getElementById('category-row')
@@ -20,12 +22,12 @@ function initCatRow() {
 }
 
 //CREATE CLUE BOARD
-
+//Function to create the game board
 function initBoard() {
     let board = document.getElementById('clue-board')
 
     //GENERATE 5 ROWS, THEN PLACE 5 BOXES IN EACH ROW
-
+    //loops to create a div element 
     for (let i = 0; i < 5; i++) {
         let row = document.createElement('div')
         let boxValue = 100 * (i + 1)
@@ -131,7 +133,6 @@ function getClue (event) {
 }
 
 //SHOW QUESTION TO USER AND GET THEIR ANSWER!
-
 function showQuestion(clue, target, boxValue) {
     let userAnswer = prompt(clue.question).toLowerCase()
     let correctAnswer = clue.answer.toLowerCase().replace(/<\/?[^>]+(>|$)/g, "")
@@ -142,7 +143,7 @@ function showQuestion(clue, target, boxValue) {
 }
 
 // EVALUATE ANSWER AND SHOW TO USER TO CONFIRM
-
+//ternery operator to check and validate the answer given.
 function evaluateAnswer(userAnswer, correctAnswer, possiblePoints) {
     let checkAnswer = (userAnswer == correctAnswer) ? 'correct' : 'incorrect'
     let confirmAnswer = 
@@ -151,7 +152,8 @@ function evaluateAnswer(userAnswer, correctAnswer, possiblePoints) {
 }
 
 // AWARD POINTS
-
+//checks if the current answer and the answer given are the same
+//awards or deducts the points depending on the answer  
 function awardPoints(checkAnswer, confirmAnswer, possiblePoints) {
     if (!(checkAnswer == 'incorrect' && confirmAnswer == true)) {
         let target = document.getElementById('score')
