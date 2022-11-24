@@ -102,9 +102,9 @@
                 <h5>BUTTONS</h5>
             </legend>
             <br>
-            <button type="submit" class="regbut registering" onclick="Register()">REGISTER</button>
-            <button type="button" class="regbut play" onclick="PlayGame()">PLAY</button>
-            <button type="button" class="regbut quit" onclick="findPercentageScore()">QUIT</button>
+            <a href="#" class="regbut registering" onclick="Register()">REGISTER</a>
+            <a href="#area" class="regbut play" onclick="PlayGame()">PLAY</a>
+            <a href="#" class="regbut quit" onclick="findPercentageScore()">QUIT</a>
             <br><br>
             <legend>
                 <h4>Player Information</h4>
@@ -119,7 +119,7 @@
     <br><br><br>
 
     <!-- Play Area -->
-    <div class="playarea">
+    <div id="area" class="playarea">
         <header class="heading">
             <h1>Jeopardy!</h1>
             <p>Score:<span id="score"> 100</span></p>
@@ -132,6 +132,10 @@
         </section>
         <script src="logic.js"></script>
     </div>
+
+    <br>
+    <center><a href="#area" class="regbut" id="play-agn" onclick="PlayGame()">PLAY AGAIN</a></center>
+    <br><br>
 </body>
 
 </html>

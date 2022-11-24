@@ -1,4 +1,6 @@
 // Game Logic for Jeopardy Game
+
+//INITIALIZE THE GAME BOARD ON PAGE LOAD
 initCatRow()
 initBoard()
 
@@ -9,7 +11,7 @@ document.querySelector('#start-game').addEventListener('click',buildCategories)
 function initCatRow() {
     let catRow = document.getElementById('category-row')
 
-    for (let i = 0; i < 5; i++) {
+    for (let i=0; i<5; i++) {
         let box = document.createElement('div')
         box.className = 'clue-box category-box'
         catRow.appendChild(box)
@@ -29,7 +31,7 @@ function initBoard() {
         let boxValue = 100 * (i + 1)
         row.className = 'clue-row'
 
-        for (let j = 0; j < 5; j++) {
+        for (let j=0; j<5; j++) {
             let box = document.createElement('div')
             box.className = 'clue-box'
             box.textContent = '$' + boxValue
@@ -83,6 +85,7 @@ function buildCategories () {
         catArray = res
         setCategories(catArray)
     })
+
 }
 
 //RESET BOARD AND $$ AMOUNT IF NEEDED
@@ -96,7 +99,7 @@ function resetBoard() {
     while (catParent.firstChild) {
         catParent.removeChild(catParent.firstChild)
     }
-    document.getElementById('score').innerText = 100
+    document.getElementById('score').innerText = 0
     initBoard()
     initCatRow()
 }
@@ -106,7 +109,7 @@ function resetBoard() {
 function setCategories (catArray) {
     let element = document.getElementById('category-row')
         let children = element.children;
-        for(let i = 0; i < children.length; i++) {
+        for(let i=0; i<children.length; i++) {
             children[i].innerHTML = catArray[i].title
         }
 }
@@ -135,22 +138,22 @@ function showQuestion(clue, target, boxValue) {
     let possiblePoints = +(boxValue)
     target.innerHTML = clue.answer
     target.removeEventListener('click',getClue,false)
-    checkAnswer(userAnswer, correctAnswer, possiblePoints)
+    evaluateAnswer(userAnswer, correctAnswer, possiblePoints)
 }
 
 // EVALUATE ANSWER AND SHOW TO USER TO CONFIRM
 
-function checkAnswer(userAnswer, correctAnswer, possiblePoints) {
-    let evaluateAnswer = (userAnswer == correctAnswer) ? 'correct' : 'incorrect'
+function evaluateAnswer(userAnswer, correctAnswer, possiblePoints) {
+    let checkAnswer = (userAnswer == correctAnswer) ? 'correct' : 'incorrect'
     let confirmAnswer = 
     confirm(`For $${possiblePoints}, you answered "${userAnswer}", and the correct answer was "${correctAnswer}". Your answer appears to be ${checkAnswer}. Click OK to accept or click Cancel if the answer was not properly evaluated.`)
-    awardPoints(evaluateAnswer, confirmAnswer, possiblePoints)
+    awardPoints(checkAnswer, confirmAnswer, possiblePoints)
 }
 
 // AWARD POINTS
 
-function awardPoints(evaluateAnswer, confirmAnswer, possiblePoints) {
-    if (!(evaluateAnswer == 'incorrect' && confirmAnswer == true)) {
+function awardPoints(checkAnswer, confirmAnswer, possiblePoints) {
+    if (!(checkAnswer == 'incorrect' && confirmAnswer == true)) {
         let target = document.getElementById('score')
         let currentScore = +(target.innerText)
         currentScore += possiblePoints
@@ -159,4 +162,5 @@ function awardPoints(evaluateAnswer, confirmAnswer, possiblePoints) {
         currentScore -= possiblePoints
         target.innerText = currentScore
     }
+
 }

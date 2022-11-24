@@ -4,10 +4,10 @@
     --text: #ffffff;
     --dark: #042a43;
     --light: #ffffff;
-    --accent: #048c7f;
-    --accent2: #19c8b6;
-    --background: #172c3c;
-    --background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23048c7f' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    --accent: #7d4cdb;
+    --accent2: #ac71e8;
+    --background: #393058;
+    --background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237d4cdb' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -38,7 +38,7 @@ nav {
     z-index: 99;
     position: fixed;
     padding: 7px 32px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.614);
     border-bottom: 5px solid var(--accent);
 }
 
@@ -232,7 +232,7 @@ h1 {
 
 /*REGISTRATION FORM*/
 fieldset {
-    border: 2px solid #048c7f;
+    border: 2px solid var(--accent);
     color: white;
     width: 40%;
     margin-left: auto;
@@ -242,13 +242,13 @@ fieldset {
 legend {
     padding: 2px 50px;
     text-align: center;
-    border: 2px solid #048c7f;
+    border: 2px solid var(--accent);
     border-left: none;
     border-right: none;
 }
 
 legend.register {
-    border: 2px solid #048c7f;
+    border: 2px solid var(--accent);
 }
 
 label {
@@ -257,7 +257,7 @@ label {
 
 input.register,
 select.register {
-    border: 1px solid #042a43;
+    border: 1px solid var(--dark);
     font-weight: bold;
     width: 500px;
     display: inline-block;
@@ -265,7 +265,7 @@ select.register {
 }
 
 textarea.register {
-    border: 1px solid #042a43;
+    border: 1px solid var(--dark);
     font-weight: bold;
     width: 500px;
     height: 100px;
@@ -299,6 +299,7 @@ textarea.register {
 
 /*PLAY AREA*/
 .heading {
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -307,6 +308,8 @@ textarea.register {
 }
 
 .score {
+    margin-right: 20px;
+
     display: flex;
     align-items: center;
 }
@@ -369,4 +372,19 @@ span {
 
 .clicked-box {
     font-size: 1rem;
+}
+
+#play-again {
+    margin-bottom: 20px;
+}
+
+/* About Page */
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
 }
